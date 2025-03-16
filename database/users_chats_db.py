@@ -206,12 +206,18 @@ class Database:
         
     
     async def get_settings(self, id):
-        chat = await self.grp.find_one({'id':int(id)})
-        if chat:
-            return chat.get('settings', default_setgs)
-        return default_setgs
-    
+        chat = await self.grp.find_one({'id': int(id)})
 
+        settings = chat.get('settings', default_setgs) if chat else default_setgs
+
+        # ✅ Ensure is_blogspot exists in settings
+        if "is_blogspot" not in settings:
+            settings["is_blogspot"] = False  
+            await self.grp.update_one({'id': int(id)}, {"$set": {"settings.is_blogspot": False}}, upsert=True)
+
+        return settings
+
+    
     async def disable_chat(self, chat, reason="No Reason"):
         chat_status=dict(
             is_disabled=True,
