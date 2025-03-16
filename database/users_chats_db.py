@@ -51,6 +51,7 @@ default_setgs = {
     'shortlink': SHORTLINK_URL,
     'shortlink_api': SHORTLINK_API,
     'is_shortlink': SHORTLINK_MODE,
+    'is_blogspot': False,
     'fsub': None,
     'tutorial': TUTORIAL,
     'is_tutorial': IS_TUTORIAL
