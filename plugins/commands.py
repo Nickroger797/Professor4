@@ -861,6 +861,16 @@ async def settings(client, message):
                     callback_data=f'setgs#is_shortlink#{settings["is_shortlink"]}#{grp_id}',
                 ),
             ],
+            [
+                InlineKeyboardButton(
+                   'Bʟᴏɢsᴘᴏᴛ Mᴏᴅᴇ',
+                   callback_data=f'setgs#is_blogspot#{settings["is_blogspot"]}#{str(grp_id)}',
+                ),
+                InlineKeyboardButton(
+                    '✔ Oɴ' if settings["is_blogspot"] else '✘ Oғғ',
+                    callback_data=f'setgs#is_blogspot#{settings["is_blogspot"]}#{str(grp_id)}',
+                ),
+            ],         
         ]
         btn = [[
             InlineKeyboardButton("Oᴘᴇɴ Hᴇʀᴇ ↓", callback_data=f"opnsetgrp#{grp_id}"),
