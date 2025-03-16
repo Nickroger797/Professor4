@@ -1586,7 +1586,13 @@ async def cb_handler(client: Client, query: CallbackQuery):
                                          callback_data=f'setgs#is_shortlink#{settings["is_shortlink"]}#{str(grp_id)}'),
                     InlineKeyboardButton('✔ Oɴ' if settings["is_shortlink"] else '✘ Oғғ',
                                          callback_data=f'setgs#is_shortlink#{settings["is_shortlink"]}#{str(grp_id)}')
-                ]
+                ],
+                [
+                    InlineKeyboardButton('Bʟᴏɢsᴘᴏᴛ Mᴏᴅᴇ',
+                                         callback_data=f'setgs#is_blogspot#{settings["is_blogspot"]}#{str(grp_id)}'),
+                    InlineKeyboardButton('✔ Oɴ' if settings["is_blogspot"] else '✘ Oғғ',
+                                         callback_data=f'setgs#is_blogspot#{settings["is_blogspot"]}#{str(grp_id)}')
+                ],        
             ]
             reply_markup = InlineKeyboardMarkup(buttons)
             await query.message.edit_text(
