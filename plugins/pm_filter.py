@@ -1589,9 +1589,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 ],
                 [
                     InlineKeyboardButton('Bʟᴏɢsᴘᴏᴛ Mᴏᴅᴇ',
-                                         callback_data=f'setgs#is_blogspot#{settings["is_blogspot"]}#{str(grp_id)}'),
-                    InlineKeyboardButton('✔ Oɴ' if settings["is_blogspot"] else '✘ Oғғ',
-                                         callback_data=f'setgs#is_blogspot#{settings["is_blogspot"]}#{str(grp_id)}')
+                                         callback_data=f'setgs#is_blogspot#{settings.get("is_blogspot", False)}#{str(grp_id)}'),
+                    InlineKeyboardButton('✔ Oɴ' if settings.get("is_blogspot", False) else '✘ Oғғ',
+                                         callback_data=f'setgs#is_blogspot#{settings.get("is_blogspot", False)}#{str(grp_id)}')
                 ]
             ]
             reply_markup = InlineKeyboardMarkup(buttons)
